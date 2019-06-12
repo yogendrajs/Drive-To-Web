@@ -2,7 +2,7 @@
 
 ### About the Project
 
-In this project, I have shown the images of the public folder **Images** of my Drive, to the web-browser using **Google-Drive-API**, without using any database. I have also attached image-slider in the html, so that everyone can view all the images by scrolling them.
+In this project, I have shown the images of the public folder **Images** of my Drive, to the web-browser using **Google-Drive-API**, without using any database in Django/Python. I have also attached image-slider in the html, so that everyone can view all the images by scrolling them.
 
 ### Requirements
 
