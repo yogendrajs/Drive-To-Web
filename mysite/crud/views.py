@@ -1,11 +1,9 @@
-from __future__ import print_function
 from django.shortcuts import render
-
 # Creating my views here.
 from django.http import HttpResponse
 import pickle
 import os.path
-import os
+import os, pprint
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -47,28 +45,31 @@ def index(request): # one of the endpoints method-name
     # Call the Drive v3 API
     results = service.files().list(
         pageSize=15, fields="nextPageToken, files(id, name)").execute()
-    items = results.get('files', []) # all the images and details are in the list.
-    
+    items = results.get('files', []) # appending all the details of the images in a list by calling 'files' key of 'results'
+    # pprint.pprint(items)
     total_url_list = [] # taking this list to pass all the images link to html.
     if not items:
-        print('No files found.') # it would be printed if no files would be in the folder
+        print('No files found.') # it would be printed if no files would be in the list
     else:
         print('Files:')
         for item in items:
             if item['name'] == 'Images': # accessing the public 'Images' folder from my Drive.
                 
-                # The following query variable is finding all the details of the 'Images' folder like name and id of every image.
+                # The following 'query' variable has the 'id' of the parent folder to get access to 'children' of the folder.
                 query = "'{}' in parents".format(item['id'])
+                # pprint.pprint(query)
+
                 children = service.files().list(q=query, 
                                 fields='nextPageToken, files(id, name)').execute() # accessing the child images of 'Images' folder.
 
                 all_images = children['files'] # list of all the images
+                # pprint.pprint(all_images) # all the child images of the folder showing up in a list with particular dictionaries having their data.
                 for i in all_images:
                     # appending and printing the urls of all the images while looping through the children image files.
                     print ('link is https://drive.google.com/uc?export=view&id={}'.format(i['id']))
                     total_url_list.append('https://drive.google.com/uc?export=view&id={}'.format(i['id'])) 
 
-        return render(request, 'first.htm', {"data": total_url_list}) # passing the total urls of images to render on html.
+        return render(request, 'first.htm', {"data": total_url_list}) # passing the total urls-object of images to render on html.
 
 # ...
 
