@@ -10,7 +10,7 @@
 # mysite/manage.py: 10
 # mysite/mysite/urls.py: 17
 # mysite/mysite/wsgi.py: 12
-Django == 2.2.8
+Django == 3.0
 
 # mysite/crud/views.py: 10
 apiclient == 1.0.4
