@@ -10,19 +10,13 @@
 # mysite/manage.py: 10
 # mysite/mysite/urls.py: 17
 # mysite/mysite/wsgi.py: 12
-Django == 3.0
+Django == 3.0.2
 
-# mysite/crud/views.py: 10
-apiclient == 1.0.4
-
-# mysite/crud/views.py: 7
-google-api-python-client == 1.7.10
-
-# mysite/crud/views.py: 7
-google-api-python-client-uritemplate == 1.4.2
+# mysite/crud/views.py: 7,10
+google_api_python_client_uritemplate == 1.4.2
 
 # mysite/crud/views.py: 8
-google-auth-oauthlib == 0.4.0
+google_auth_oauthlib == 0.4.0
 
 # mysite/crud/views.py: 9
 protobuf == 3.0.0
