@@ -10,7 +10,7 @@
 # mysite/manage.py: 10
 # mysite/mysite/urls.py: 17
 # mysite/mysite/wsgi.py: 12
-Django == 3.0.3
+Django == 3.1.12
 
 # mysite/crud/views.py: 7,10
 google_api_python_client_uritemplate == 1.4.2
