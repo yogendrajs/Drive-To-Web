@@ -19,4 +19,4 @@ google_api_python_client_uritemplate == 1.4.2
 google_auth_oauthlib == 0.4.0
 
 # mysite/crud/views.py: 9
-protobuf == 3.0.0
+protobuf == 3.18.3
